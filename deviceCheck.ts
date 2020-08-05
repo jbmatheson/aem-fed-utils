@@ -1,46 +1,54 @@
-export const breakpoints = {
-    mobileMax: 767,
-    tabletMax: 991,
-    smallDesktopMax: 1199,
-    desktopMax: 1800,
-};
+export enum Devices {
+    Mobile,
+    Tablet,
+    Web,
+    Desktop,
+}
 
-export const deviceCheck = {
-    isMobileDevice: function isMobileDevice() {
-        if (window.innerWidth <= breakpoints.mobileMax) {
-            return true;
+export class DeviceCheck  {
+    private static readonly smBreakpoint = 768;
+    private static readonly mdBreakpoint = 1025;
+    private static readonly lgBreakpoint = 1440;
+
+    public getCurrentDevice = () => {
+        if (this.isMobileDevice()) {
+            return Devices.Mobile;
         }
-        return false;
-    },
-    isTabletDevice: function isTabletDevice() {
-        if (window.innerWidth > breakpoints.mobileMax && window.innerWidth <= breakpoints.tabletMax) {
-            return true;
+        if (this.isTabletDevice()) {
+            return Devices.Tablet;
         }
-        return false;
-    },
-    isSmallDesktop: function isSmallDesktop() {
-        if (window.innerWidth > breakpoints.tabletMax && window.innerWidth <= breakpoints.smallDesktopMax) {
-            return true;
+        if (this.isWebDevice()) {
+            return Devices.Web;
         }
-        return false;
-    },
-    isDesktop: function isDesktop() {
-        if (window.innerWidth > breakpoints.smallDesktopMax && window.innerWidth <= breakpoints.desktopMax) {
-            return true;
+        if (this.isDesktop()) {
+            return Devices.Desktop;
         }
-        return false;
-    },
-    isLargeDesktop: function isLargeDesktop() {
-        if(window.innerWidth > breakpoints.desktopMax) {
-            return true;
-        }
-        return false;
-    },
-    isBrowser: function isBrowser() {
+        return undefined;
+    }
+
+    public isMobileDevice = () => {
+        return (window.innerWidth < DeviceCheck.smBreakpoint);
+    }
+
+    public isTabletDevice = () => {
+        return (window.innerWidth >= DeviceCheck.smBreakpoint && window.innerWidth < DeviceCheck.mdBreakpoint);
+    }
+
+    public isWebDevice = () => {
+        return (window.innerWidth >= DeviceCheck.mdBreakpoint && window.innerWidth < DeviceCheck.lgBreakpoint);
+    }
+
+    public isDesktop = () => {
+        return (window.innerWidth >= DeviceCheck.lgBreakpoint);
+    }
+
+    public isBrowser = () => {
         try {
             return typeof window !== 'undefined';
         }catch(e){
             return false;
         }
     }
-};
+}
+
+export const deviceCheck = new DeviceCheck();

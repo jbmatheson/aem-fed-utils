@@ -1,11 +1,22 @@
 {
   "name": "aem-fed-utils",
-  "version": "1.0.0",
+  "version": "1.1.5",
   "description": "Adds Global Typescript Utilities to a project",
   "main": "index.js",
+  "keywords": [
+    "aem",
+    "adobe",
+    "typescript",
+    "archetype"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "mansquatch",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "es6-promise": "^4.2.8",
+    "isomorphic-fetch": "^2.2.1",
+    "smoothscroll-polyfill": "^0.4.4"
+  }
 }

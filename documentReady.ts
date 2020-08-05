@@ -7,4 +7,4 @@ export class DocumentReady {
         }
     }
 }
-export const webDocumentReady = new DocumentReady();
+export const fcbDocumentReady = new DocumentReady();
