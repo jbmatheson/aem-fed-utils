@@ -1,6 +1,6 @@
 {
   "name": "aem-fed-utils",
-  "version": "1.1.6",
+  "version": "1.1.8",
   "description": "Adds Global Typescript Utilities to a project",
   "main": "index.js",
   "keywords": [
@@ -13,7 +13,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "mansquatch",
-  "license": "ISC",
+  "license": "MIT",
   "repository": "https://github.com/jbmatheson/aem-fed-utils",
   "dependencies": {
     "es6-promise": "^4.2.8",

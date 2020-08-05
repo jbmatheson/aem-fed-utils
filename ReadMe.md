@@ -2,6 +2,8 @@
 
 Projects that use the FED-Archetype (UI.Frontend) and go with Typescript can add this package to their project to get some very common global helper modules.
 
+This is a work-in-progess. I plan to make these interfaces and focus on extensibility. I also have plans to add more utilities as I finish evaulating the ones see myself using a lot.
+
 ### The modules in this include:
 * CollapseContent
   * addClickCollapseListener
